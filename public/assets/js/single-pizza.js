@@ -25,6 +25,7 @@ function getPizza() {
       return response.json();
     })
     .then(printPizza)
+    // catch method so that any erroy takes the user back to the home page
     .catch(err => {
       console.log(err);
       alert('Cannot find a pizza with this id! Taking you back.');
@@ -99,6 +100,7 @@ function printReply(reply) {
 `;
 }
 
+// function for creating new comments to pizzas
 function handleNewCommentSubmit(event) {
   event.preventDefault();
 
@@ -134,6 +136,7 @@ function handleNewCommentSubmit(event) {
     });
 }
 
+// function for creating new replies to comments
 function handleNewReplySubmit(event) {
   event.preventDefault();
 

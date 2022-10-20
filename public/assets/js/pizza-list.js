@@ -1,5 +1,6 @@
 const $pizzaList = document.querySelector('#pizza-list');
 
+// get all pizza data, convert into JSON data, run each one through the printPizza function
 const getPizzaList = () => {
   fetch('/api/pizzas')
     .then(response => response.json())

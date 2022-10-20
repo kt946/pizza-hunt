@@ -1,3 +1,4 @@
+// import Types object to generate ObjectId() values
 const { Schema, model, Types } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
@@ -49,6 +50,7 @@ const CommentSchema = new Schema(
       get: createdAtVal => dateFormat(createdAtVal)
     },
     // use ReplySchema to validate data for a reply
+    // replies will be nested directly in a comment's document and not referred to
     replies: [ReplySchema]
   },
   {
@@ -60,6 +62,7 @@ const CommentSchema = new Schema(
   }
 );
 
+// virtual to get the total number of replies to a comment
 CommentSchema.virtual('replyCount').get(function() {
   return this.replies.length;
 });
